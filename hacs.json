@@ -1,5 +1,5 @@
 {
-  "name": "TV Remote Card (with touchpad and haptic feedback)",
+  "name": "带触摸板和触摸反馈的遥控器_cn custom made)",
   "content_in_root": true,
-  "homeassistant": "2022.4.0"
+  "homeassistant": "2022.11.0"
 }

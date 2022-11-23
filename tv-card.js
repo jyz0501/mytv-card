@@ -7,10 +7,10 @@ const keys = {
     "power": {"key": "KEY_POWER", "icon": "mdi:power"},
     "volume_up": {"key": "KEY_VOLUP", "icon": "mdi:volume-plus"},
     "volume_down": {"key": "KEY_VOLDOWN", "icon": "mdi:volume-minus"},
-    "volume_mute": {"key": "KEY_MUTE", "icon": "mdi:volume-mute"},
-    "return": {"key": "KEY_RETURN", "icon": "mdi:arrow-left"},
+    "volume_mute": {"key": "KEY_MUTE", "icon": "mdi:volume-off"},
+    "return": {"key": "KEY_RETURN", "icon": "mdi:arrow-u-left-top"},
     "source": {"key": "KEY_SOURCE", "icon": "mdi:video-input-hdmi"},
-    "info": {"key": "KEY_INFO", "icon": "mdi:television-guide"},
+    "info": {"key": "KEY_INFO", "icon": "mdi:information"},
     "home": {"key": "KEY_HOME", "icon": "mdi:home"},
     "channel_up": {"key": "KEY_CHUP", "icon": "mdi:arrow-up"},
     "channel_down": {"key": "KEY_CHDOWN", "icon": "mdi:arrow-down"},
@@ -26,9 +26,9 @@ const keys = {
 };
 
 const sources = {
-    "netflix": {"source": "Netflix", "icon": "mdi:netflix"},
-    "spotify": {"source": "Spotify", "icon": "mdi:spotify"},
-    "youtube": {"source": "YouTube", "icon": "mdi:youtube"},
+    "weixin": {"source": "weixin", "icon": "mdi:wechat"},
+    "weibo": {"source": "weibo", "icon": "mdi:sina-weiboy"},
+    "qq": {"source": "QQ", "icon": "mdi:qqchat"},
 };
 
 var fireEvent = function(node, type, detail, options) {
@@ -124,7 +124,7 @@ class TVCardServices extends LitElement {
             "mainSliderColor": "white",
             "secondarySliderColor": "rgb(60, 60, 60)",
             "mainSliderColorOff": "rgb(60, 60, 60)",
-            "secondarySliderColorOff": "rgb(60, 60, 60)",
+            "secondarySliderColorOff": "rgb(80, 80, 68)",
             "thumbWidth": "0px",
             "thumbHorizontalPadding": "0px",
             "radius": "25px",
@@ -257,7 +257,7 @@ class TVCardServices extends LitElement {
         }
         else if (info.service) {
             const [domain, service] = info.service.split(".", 2);
-            this._hass.callService(domain, service, info.service_data);
+            this._hass.callService(domain, service, info.data);
         }
 
         if (this._config.enable_button_feedback === undefined || this._config.enable_button_feedback) fireEvent(window, "haptic", "light");
